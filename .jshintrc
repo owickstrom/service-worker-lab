@@ -89,6 +89,12 @@
         "process",
         "require",
         "module",
-        "__dirname"
+        "__dirname",
+
+        // Service Worker
+        "self",
+        "caches",
+        "importScripts",
+        "fetch"
     ]
 }

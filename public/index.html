@@ -12,5 +12,18 @@
 </button>
 <div class="main"></div>
 <script src="/scripts/app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js', {
+    scope: '/'
+  }).then(function (sw) {
+    console.log('We have a service worker!');
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
+</script>
+
 </body>
 </html>
