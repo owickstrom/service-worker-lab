@@ -13,6 +13,13 @@ function createElement(tag, classes, text) {
   return element;
 }
 
+function shortTime(d) {
+  function pad(n) {
+    return (n > 9 ? '' : '0') + n;
+  }
+  return pad(d.getHours()) + ':' + pad(d.getMinutes());
+}
+
 function renderTransfer(transfer, container) {
   var item = createElement('li', 'transfer', null);
   var heading = createElement('h2', null, null);
@@ -20,13 +27,15 @@ function renderTransfer(transfer, container) {
   var destination = createElement('span', 'destination', transfer.destination.replace(/,/g, ', '));
   heading.appendChild(destination);
 
-  var time = createElement('time', null, transfer.departure.split(' ')[1]);
-  time.dateTime = transfer.departure;
+  var departureTime = new Date(transfer.departure);
+  var time = createElement('time', null, shortTime(departureTime));
+  time.setAttribute('dateTime', departureTime);
   heading.appendChild(time);
 
   item.appendChild(heading);
 
   item.appendChild(createElement('p', 'type', transfer.type));
+  item.appendChild(createElement('p', 'train', transfer.train));
   item.appendChild(createElement('p', 'track', 'Spår ' + transfer.track));
 
   container.appendChild(item);

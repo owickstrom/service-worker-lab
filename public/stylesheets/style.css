@@ -3,6 +3,7 @@ body {
   padding: 50px;
   margin: 0 auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #222;
   background: #eae9e3;
 }
 
@@ -33,7 +34,7 @@ nav {
   margin: 0 0 1em 0;
   padding: 1em;
   background: #fafafa;
-  box-shadow: 2px 2px 0 #cac9c3;
+  box-shadow: 2px 2px 1px #cac9c3;
 }
 
 .transfer h2 {
@@ -57,11 +58,22 @@ nav {
 }
 
 .transfer .type {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   margin: 0;
+  color: #666;
+}
+
+.transfer .train {
+  flex: 1 0 auto;
+  margin: 0 0 0 .5em;
+  font-weight: bold;
+  color: #666;
+}
+.transfer .train:before {
+  content: '#';
 }
 
 .transfer .track {
