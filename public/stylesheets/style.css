@@ -11,6 +11,29 @@ a {
   color: #ff00ee;
 }
 
+button {
+  display: block;
+  width: 100%;
+  padding: 1em;
+  background: rgba(0, 0, 0, .05);
+  border: none;
+
+  transition: background .5s ease;
+  cursor: pointer;
+}
+
+.refresh {
+  margin-bottom: 2em;
+  text-align: center;
+}
+.refresh:hover {
+  background: rgba(0, 0, 0, .1);
+}
+.refresh img {
+  display: inline-block;
+  opacity: 0.5;
+}
+
 nav {
   font-size: 150%;
   margin-bottom: 1em;

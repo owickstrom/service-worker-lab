@@ -118,3 +118,5 @@ function getTransfers() {
 
 getTransfers();
 
+document.querySelector('.refresh').addEventListener('click', getTransfers);
+
