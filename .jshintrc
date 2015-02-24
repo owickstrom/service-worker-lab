@@ -61,9 +61,9 @@
     "validthis"     : false,     // true: Tolerate using this in a non-constructor function
 
     // Environments
-    "browser"       : false,    // Web Browser (window, document, etc)
+    "browser"       : true,     // Web Browser (window, document, etc)
     "couch"         : false,    // CouchDB
-    "devel"         : false,     // Development/debugging (alert, confirm, etc)
+    "devel"         : false,    // Development/debugging (alert, confirm, etc)
     "dojo"          : false,    // Dojo Toolkit
     "jquery"        : false,    // jQuery
     "mootools"      : false,    // MooTools
