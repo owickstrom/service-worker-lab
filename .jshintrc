@@ -90,6 +90,11 @@
         "require",
         "module",
         "__dirname",
-        "self"
+
+        // Service Worker
+        "self",
+        "caches",
+        "importScripts",
+        "fetch"
     ]
 }
