@@ -89,6 +89,7 @@
         "process",
         "require",
         "module",
-        "__dirname"
+        "__dirname",
+        "self"
     ]
 }
