@@ -21,6 +21,10 @@ npm start
 
 1. Observe the behaviour of the app as it is. Try using the Chrome Devtools to
    simulate no or slow network.
+1. Add an empty Service Worker in the `public` directory and register it in
+   `public/index.html`. **Note that the Service Worker script needs to be at the
+   root of its scope, or higher.** A Service Worker cannot be served at
+   `/my-stuff/misc/service-worker.js` and have a scope of `/`.
 1. **Add the [Cache Polyfill](https://github.com/coonsta/cache-polyfill) to be
    able to use the full Service Worker Cache API.** Without this it will be
    painful.
