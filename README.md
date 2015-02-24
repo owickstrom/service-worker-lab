@@ -19,9 +19,19 @@ npm start
 
 ## Objectives
 
-1. ...
-1. ...
-1. ...
+1. Observe the behaviour of the app as it is. Try using the Chrome Devtools to
+   simulate no or slow network.
+1. **Add the [Cache Polyfill](https://github.com/coonsta/cache-polyfill) to be
+   able to use the full Service Worker Cache API.** Without this it will be
+   painful.
+1. Add static assets to a separate cache in the `install` callback. This
+   includes CSS and Javascript (not `service-worker.js`).
+1. Add dynamic assets to a separate cache after they have been fetched. If the
+   cache already has a match for the request, use that instead.
+1. Improve the prior dynamic cache to always do a real request and update of the
+   cache, even if the cache has a hit, but use the cache directly. This is
+   effectively the same as
+   [stale-while-revalidate](https://www.mnot.net/blog/2014/06/01/chrome_and_stale-while-revalidate).
 
 ## License
 
