@@ -1,7 +1,9 @@
 # Service Worker Lab
 
 In this lab you will learn how to add basic offline capabilities to a multi-page
-web app using Service Worker.
+web app using Service Worker. The app loads a couple of static assets from the
+server and makes an XHR to get train departures from Malmö Central Station. Good
+stuff.
 
 ## Prerequisites
 

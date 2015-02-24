@@ -1,0 +1,66 @@
+body {
+  max-width: 600px;
+  padding: 50px;
+  margin: 0 auto;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #eae9e3;
+}
+
+a {
+  color: #ff00ee;
+}
+
+nav {
+  font-size: 150%;
+  margin-bottom: 1em;
+}
+
+.transfers {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transfer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 1em 0;
+  padding: 1em;
+  background: #fafafa;
+  box-shadow: 2px 2px 0 #cac9c3;
+}
+
+.transfer h2 {
+  flex: 1 0 100%;
+  display: flex;
+  margin: 0 0 .5em;
+}
+
+.transfer .destination {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.transfer time {
+  flex: 0 0 auto;
+  margin-left: 1em;
+  color: #33cccc;
+  font-weight: normal;
+}
+
+.transfer .type {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+}
+
+.transfer .track {
+  flex: 0 0 auto;
+  margin: 0 0 0 1em;
+  font-weight: bold;
+}
+
