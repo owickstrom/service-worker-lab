@@ -7,7 +7,16 @@ var errorHandler = require('errorhandler');
 
 var app = express();
 
+var departures = require('./departures.json');
+
 app.use(logger('dev'));
+
+app.get('/departures', function (req, res) {
+  setTimeout(function () {
+    res.json(departures);
+  }, 2000);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(errorHandler());

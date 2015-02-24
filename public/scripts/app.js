@@ -41,7 +41,15 @@ function renderTransfer(transfer, container) {
   container.appendChild(item);
 }
 
+function removeChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
 function renderTransfers(transfers, container) {
+  removeChildren(container);
+
   var list = createElement('ul', 'transfers', null);
   transfers.forEach(function (transfer) {
     renderTransfer(transfer, list);
@@ -49,7 +57,17 @@ function renderTransfers(transfers, container) {
   container.appendChild(list);
 }
 
+function renderSpinner(container) {
+  removeChildren(container);
+  var spinner = createElement('span', 'spinner', null);
+  container.appendChild(spinner);
+}
+
 function renderError(e, container) {
+  if (!container) {
+    return;
+  }
+  removeChildren(container);
   container.appendChild(createElement('h1', null, 'Oops!'));
   container.appendChild(createElement('p', 'error', e.toString()));
 }
@@ -87,8 +105,9 @@ function get(url) {
 
 function getTransfers() {
   var main = document.querySelector('.main');
+  renderSpinner(main);
 
-  get('/departures.json').then(function (body) {
+  get('/departures').then(function (body) {
     var departures = JSON.parse(body);
     renderTransfers(departures.station.transfers.transfer, main);
   }).catch(function (e) {
@@ -98,3 +117,4 @@ function getTransfers() {
 }
 
 getTransfers();
+
