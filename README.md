@@ -7,11 +7,16 @@ stuff.
 
 ## Prerequisites
 
-...
+* NodeJS
+* NPM
+* Chrome 40 (currently)
 
 ## Server
 
-...
+```bash
+npm install
+npm start
+```
 
 ## Objectives
 
