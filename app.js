@@ -12,6 +12,7 @@ var departures = require('./departures.json');
 app.use(logger('dev'));
 
 app.get('/departures', function (req, res) {
+  departures.lastUpdate = new Date();
   setTimeout(function () {
     res.json(departures);
   }, 2000);

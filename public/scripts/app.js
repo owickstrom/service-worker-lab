@@ -13,11 +13,20 @@ function createElement(tag, classes, text) {
   return element;
 }
 
-function shortTime(d) {
+function shortTime(d, includeSeconds) {
+  if (isNaN(d)) {
+    return '-';
+  }
   function pad(n) {
     return (n > 9 ? '' : '0') + n;
   }
-  return pad(d.getHours()) + ':' + pad(d.getMinutes());
+  var s = pad(d.getHours()) + ':' + pad(d.getMinutes());
+
+  if (includeSeconds) {
+    s += ':' + pad(d.getSeconds());
+  }
+
+  return s;
 }
 
 function renderTransfer(transfer, container) {
@@ -36,7 +45,7 @@ function renderTransfer(transfer, container) {
 
   item.appendChild(createElement('p', 'type', transfer.type));
   item.appendChild(createElement('p', 'train', transfer.train));
-  item.appendChild(createElement('p', 'track', 'Spår ' + transfer.track));
+  item.appendChild(createElement('p', 'track', 'Track ' + transfer.track));
 
   container.appendChild(item);
 }
@@ -47,11 +56,20 @@ function removeChildren(element) {
   }
 }
 
-function renderTransfers(transfers, container) {
+function renderTransfers(departures, container) {
   removeChildren(container);
 
+  var lastUpdateTime = new Date(departures.lastUpdate);
+  if (!isNaN(lastUpdateTime)) {
+    var lastUpdate = createElement('time',
+                                  'last-updated',
+                                  'Last updated at ' + shortTime(lastUpdateTime, true) + '.');
+    lastUpdate.setAttribute('dateTime', lastUpdateTime);
+    container.appendChild(lastUpdate);
+  }
+
   var list = createElement('ul', 'transfers', null);
-  transfers.forEach(function (transfer) {
+  departures.station.transfers.transfer.forEach(function (transfer) {
     renderTransfer(transfer, list);
   });
   container.appendChild(list);
@@ -109,7 +127,7 @@ function getTransfers() {
 
   get('/departures').then(function (body) {
     var departures = JSON.parse(body);
-    renderTransfers(departures.station.transfers.transfer, main);
+    renderTransfers(departures, main);
   }).catch(function (e) {
     console.error(e.stack);
     renderError(e, main);

@@ -51,6 +51,14 @@ button {
   color: red;
 }
 
+.last-updated {
+  display: block;
+  margin-bottom: 1em;
+  font-style: italic;
+  text-shadow: 1px 1px 0px #fff;
+  color: #888;
+}
+
 .transfers {
   list-style-type: none;
   padding: 0;

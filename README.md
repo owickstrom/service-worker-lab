@@ -2,7 +2,8 @@
 
 In this lab you will learn how to add basic offline capabilities to a web app
 using Service Worker. The app loads a couple of static assets from the server
-and makes an XHR to get train departures from Malmö Central Station. Good stuff.
+and makes an XHR to get train departures from Malmö Central Station. The server
+waits 2 seconds to respond to simulate some network latency.
 
 ## Prerequisites
 
@@ -17,21 +18,29 @@ npm install
 npm start
 ```
 
+You can now open http://localhost:3000 in Chrome 40.
+
 ## Objectives
 
 1. Observe the behaviour of the app as it is. Try using the Chrome Devtools to
-   simulate no or slow network.
+   simulate no or slow network. Note that the app displays a *Last updated at
+   ...* which marks the time the server responded with the data. You can use this
+   to identify if the data is cached or newly downloaded from the server. The
+   server logging is also handy to see what requests are really made.
 1. Add an empty Service Worker in the `public` directory and register it in
    `public/index.html`. **Note that the Service Worker script needs to be at the
    root of its scope, or higher.** A Service Worker cannot be served at
-   `/my-stuff/misc/service-worker.js` and have a scope of `/`.
+   `/my-stuff/misc/service-worker.js` and have a scope of `/`. Use the Devtools
+   to inspect the worker and make sure it registers correctly, e.g. using
+   `console.log` inside the `register` callback.
 1. **Add the [Cache Polyfill](https://github.com/coonsta/cache-polyfill) to be
    able to use the full Service Worker Cache API.** Without this it will be
    painful.
 1. Add static assets to a separate cache in the `install` callback. This
-   includes CSS and Javascript (not `service-worker.js`).
+   includes CSS, images and Javascript (not `service-worker.js`).
 1. Add dynamic assets to a separate cache after they have been fetched. If the
-   cache already has a match for the request, use that instead.
+   cache already has a match for the request, use that instead. The dynamic cache
+   should first do a cache lookup and then a real network request if needed.
 1. Improve the prior dynamic cache to always do a real request and update of the
    cache, even if the cache has a hit, but use the cache directly. This is
    effectively the same as
