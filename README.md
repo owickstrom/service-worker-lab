@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-You can now open http://localhost:3000 in Chrome 40.
+You can now open [localhost:3000](http://localhost:3000) in Chrome 40.
 
 ## Objectives
 
