@@ -7,9 +7,18 @@ waits 2 seconds to respond to simulate some network latency.
 
 ## Prerequisites
 
+### Software
+
 * NodeJS
 * NPM
 * Chrome 40 (currently)
+
+### Insights
+
+Read [slides.com/oskarwickstrom/serviceworker/](http://slides.com/oskarwickstrom/serviceworker/)
+and the first parts of [HTML5 Rocks Service Worker Introduction](http://www.html5rocks.com/en/tutorials/service-worker/introduction/)
+before starting out. The slides contains other useful links on how you can use
+Service Workers.
 
 ## Server
 
