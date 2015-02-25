@@ -36,6 +36,9 @@ npm start
    cache, even if the cache has a hit, but use the cache directly. This is
    effectively the same as
    [stale-while-revalidate](https://www.mnot.net/blog/2014/06/01/chrome_and_stale-while-revalidate).
+1. Try doing a race between a network request and a cached value after a
+   timeout. If the network request finishes after the timeout it can still
+   update the cache for later reads.
 
 ## License
 
