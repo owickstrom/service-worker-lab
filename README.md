@@ -20,9 +20,11 @@ and [HTML5 Rocks Service Worker Introduction](http://www.html5rocks.com/en/tutor
 before starting out. The slides contains other useful links on how you can use
 Service Workers.
 
-## Server
+## Setup
 
 ```bash
+git clone git@github.com:owickstrom/service-worker-lab.git
+cd service-worker-lab
 npm install
 npm start
 ```
@@ -63,6 +65,10 @@ You can now open [localhost:3000](http://localhost:3000) in Chrome 40.
 If you're not interested in setting up the Service Worker boilerplate and
 polyfill you can check out the `quick-start` branch and start from step #4 in the
 objectives.
+
+```bash
+git checkout quick-start
+```
 
 ## License
 
