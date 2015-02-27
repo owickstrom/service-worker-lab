@@ -58,6 +58,12 @@ You can now open [localhost:3000](http://localhost:3000) in Chrome 40.
    timeout. If the network request finishes after the timeout it can still
    update the cache for later reads.
 
+### Quickstart Version
+
+If you're not interested in setting up the Service Worker boilerplate and
+polyfill you can check out the `quick-start` branch and start from step #4 in the
+objectives.
+
 ## License
 
 The MIT License (MIT)
